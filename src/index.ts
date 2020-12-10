@@ -7,7 +7,7 @@ import { default as Pino } from 'pino';
 import { EventEmitter } from 'events';
 
 export type WorkerConfig = {
-  shutdownGraceperiod: number;
+  shutdownGracePeriod: number;
   logger?: Pino.Logger;
 };
 
@@ -46,7 +46,7 @@ export default class PubsubWorker extends EventEmitter {
     handler: WorkHandler,
     clientConfig: ClientConfig = {},
     subscriberOptions: SubscriberOptions = {},
-    workerConfig: WorkerConfig = { shutdownGraceperiod: 3000 }
+    workerConfig: WorkerConfig = { shutdownGracePeriod: 3000 }
   ) {
     super();
     this.clientConfig = clientConfig;
