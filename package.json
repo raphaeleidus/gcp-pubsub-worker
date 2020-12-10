@@ -2,7 +2,8 @@
   "name": "gcp-pubsub-worker",
   "version": "0.1.0",
   "description": "Task Worker Framework for GCP PubSub",
-  "main": "index.js",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
   "author": "Raphael Eidus",
   "license": "ISC",
   "dependencies": {
