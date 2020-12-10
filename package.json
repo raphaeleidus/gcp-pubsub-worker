@@ -1,10 +1,11 @@
 {
   "name": "gcp-pubsub-worker",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Task Worker Framework for GCP PubSub",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "author": "Raphael Eidus",
+  "repository": "https://github.com/raphaeleidus/gcp-pubsub-worker",
   "license": "ISC",
   "dependencies": {
     "@google-cloud/pubsub": "^2.7.0",
