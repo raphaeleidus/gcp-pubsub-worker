@@ -94,7 +94,7 @@ export default class PubsubWorker extends EventEmitter {
         this._currentProcessing += 1;
         this._totalCount += 1;
         try {
-            this._handler(message.data, logger);
+            await this._handler(message.data, logger);
             message.ack();
         } catch (err) {
             this.emit(WorkerEvents.error, {
