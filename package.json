@@ -1,6 +1,6 @@
 {
   "name": "gcp-pubsub-worker",
-  "version": "0.2.1",
+  "version": "0.3.0",
   "description": "Task Worker Framework for GCP PubSub",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
