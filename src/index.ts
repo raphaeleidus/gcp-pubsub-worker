@@ -76,6 +76,7 @@ export default class PubsubWorker extends EventEmitter {
       );
       const [meta] = await this._subscription.getMetadata();
       this.logger.info({ meta }, 'Subscription Opened');
+      this._subscription.on('message', this.messageHandler);
       this._status = 'running';
       return true;
     } catch (err) {
@@ -133,6 +134,8 @@ export default class PubsubWorker extends EventEmitter {
 
   shutdown(gracePeriod?: number): Promise<void> {
     this._status = 'shutdown';
+    this._subscription &&
+      this._subscription.removeListener('message', this.messageHandler);
     this._isShutdown = new Promise((resolve) => {
       this._completeShutdown = () => {
         this.emit(WorkerEvents.shutdown, { exitCode: 0 });
