@@ -69,6 +69,7 @@ export default class PubsubWorker extends EventEmitter {
                 state: 'error',
                 error: err,
                 msg: 'failed to start',
+                exitCode: 101,
             });
             this._status = "error";
             return false;
@@ -114,7 +115,7 @@ export default class PubsubWorker extends EventEmitter {
         this._status = "shutdown";
         this._isShutdown = new Promise((resolve) => {
             this._completeShutdown = () => {
-                this.emit(WorkerEvents.shutdown)
+                this.emit(WorkerEvents.shutdown, { exitCode: 0 })
                 resolve();
             };
         });
