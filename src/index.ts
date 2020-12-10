@@ -75,7 +75,7 @@ export default class PubsubWorker extends EventEmitter {
         this.subscriberOptions
       );
       const [meta] = await this._subscription.getMetadata();
-      this.logger.info('Subscription Opened', { meta });
+      this.logger.info({ meta }, 'Subscription Opened');
       this._status = 'running';
       return true;
     } catch (err) {
@@ -149,7 +149,7 @@ export default class PubsubWorker extends EventEmitter {
     }
     const timer = setTimeout(() => {
       this._completeShutdown && this._completeShutdown();
-    }, gracePeriod || this.workerConfig.shutdownGraceperiod);
+    }, gracePeriod || this.workerConfig.shutdownGracePeriod);
     this._isShutdown.then(() => {
       this.logger.warn(
         {},
